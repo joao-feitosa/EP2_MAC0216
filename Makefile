@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Iinclude
 all:
 
 	@mkdir -p bin
-	$(CC) $(CFLAGS) app/main.c -o bin/app
+	$(CC) $(CFLAGS) app/main.c src/*.c -o bin/app
 
 run:
 	./bin/app
