@@ -106,8 +106,5 @@ char **separa_linhas(const char *str)
         qtd++;
     }
 
-    if (qtd != NULL)
-        *qtd = qtd;
-
     return tokens;
 }
