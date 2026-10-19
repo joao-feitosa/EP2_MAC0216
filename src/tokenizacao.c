@@ -89,13 +89,20 @@ char **separa_linhas(const char *str)
 
         poscpy = pos;
 
-        while (poscpy != '\0' && isspace(unsigned char)*pos)
-            poscpy++;
+        while () {
+            while (poscpy != '\0' && poscpy != '\n' && isspace(unsigned char)*pos)
+                poscpy++;
 
-        if (poscpy != '\0')
-            tamanho = (size_t)(poscpy - inicio);
-        else
-            tamanho = (size_t)(pos - inicio);
+            if (poscpy == '\n' || poscpy == '\0') {
+                tamanho = (size_t)(pos - inicio);
+            } else {
+                pos = poscpy;
+                while (*pos != '\0' && !isspace((unsigned char)*pos))
+                    pos++;
+                continue;
+            }
+            
+        }
 
         pos = poscpy;
 
