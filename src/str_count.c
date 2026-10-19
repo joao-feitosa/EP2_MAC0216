@@ -1,11 +1,10 @@
-#include "contagem.h"
+#include "str_count.h"
 
 #include <string.h>
-
 #include <ctype.h>
 #include <stddef.h>
 
-size_t conta_palavras(const char *str) {
+size_t str_wordcount(const char *str) {
     if (str == NULL)
         return 0;
 
@@ -26,7 +25,7 @@ size_t conta_palavras(const char *str) {
     return count;
 }
 
-size_t conta_linhas(const char *str) {
+size_t str_linecount(const char *str) {
     if (str == NULL)
         return 0;
 
@@ -37,7 +36,7 @@ size_t conta_linhas(const char *str) {
         if (!isspace((unsigned char)*str) && !in_line) {
             count++;
             in_line = 1;
-        } elif (*str == '\n'){
+        } else if (*str == '\n') {
             in_line = 0;
         }
 

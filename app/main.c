@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "str_case.h"
 #include "str_edit.h"
+#include "str_count.h"
 
 int main() {
     const char *str_teste = "Fazem-se COISAS nesta cidade.";
@@ -78,6 +79,15 @@ int main() {
     free(replace2);
     free(replace3);
     free(replace4);
+
+    const char *str_teste_5 = "  A vaca, \n o boi \n\n e o passarinho  ";
+    
+    size_t palavras = str_wordcount(str_teste_5);
+    size_t linhas = str_linecount(str_teste_5);
+    
+    printf("Texto: '%s'\n", str_teste_5);
+    printf("Contagem de palavras: %zu\n", palavras);
+    printf("Contagem de linhas nao vazias: %zu\n", linhas);
 
     return 0;
 }
