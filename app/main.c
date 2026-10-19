@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 #include "str_case.h"
 #include "str_edit.h"
 #include "str_count.h"
+#include "str_token.h"
 
 int main() {
     const char *str_teste = "Fazem-se COISAS nesta cidade.";
@@ -80,14 +82,49 @@ int main() {
     free(replace3);
     free(replace4);
 
-    const char *str_teste_5 = "  A vaca, \n o boi \n\n e o passarinho  ";
+    const char *str_teste_5 = 
+        "O rato roeu a roupa do rei de Roma.\n"
+        "O rei de Roma ficou furioso e mandou pegar o rato.\n"
+        "\n"
+        "No final, o rato fugiu para a cidade de Roma!";
     
-    size_t palavras = str_wordcount(str_teste_5);
-    size_t linhas = str_linecount(str_teste_5);
+    size_t n_palavras = str_wordcount(str_teste_5);
+    size_t n_linhas = str_linecount(str_teste_5);
+    size_t n_roma = str_count(str_teste_5, "Roma");
     
     printf("Texto: '%s'\n", str_teste_5);
-    printf("Contagem de palavras: %zu\n", palavras);
-    printf("Contagem de linhas nao vazias: %zu\n", linhas);
+    printf("Contagem de palavras: %zu\n", n_palavras);
+    printf("Contagem de linhas nao vazias: %zu\n", n_linhas);
+    printf("Ocorrencias da palavra 'Roma': %zu\n\n", n_roma);
+
+    const char *str_teste_6 = 
+        "Hello, there \n"
+        "The angel from my nightmare, \n"
+        "The shadow in the background of the morgue.";
+
+    size_t n_words = str_wordcount(str_teste_6);
+    char **palavras = str_splitwords(str_teste_6);
+
+    printf("Palavras separadas:\n");
+    if (palavras != NULL) {
+        for (size_t i = 0; i < n_words; i++) {
+            printf("  [%zu] %s\n", i, palavras[i]);
+        }
+        
+        str_free_tokens(palavras, n_words);
+    }
+
+    size_t n_lines = str_linecount(str_teste_6);
+    char **linhas = str_splitlines(str_teste_6);
+
+    printf("\nLinhas separadas:\n");
+    if (linhas != NULL) {
+        for (size_t i = 0; i < n_lines; i++) {
+            printf("  [%zu] %s\n", i, linhas[i]);
+        }
+
+        str_free_tokens(linhas, n_lines);
+    }
 
     return 0;
 }

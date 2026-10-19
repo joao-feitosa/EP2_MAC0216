@@ -1,16 +1,18 @@
-#ifndef TOKENIZACAO_H
-#define TOKENIZACAO_H
+#ifndef STR_TOKEN_H
+#define STR_TOKEN_H
+
+#include <stddef.h>
 
 /*Retorna um vetor de strings com as palavras de str*/
-char **separa_palavras(const char *string);
+char **str_splitwords(const char *string);
 
 /*Retorna um vetor de strings com as linhas não vazias de str*/
-char **separa_linhas(const char *str);
+char **str_splitlines(const char *str);
 
 /*Libera um vetor de tokens
   Precisa receber o tamanho da lista de tokens, 
   gerenciar o tamanho fica a cargo do usuário
 */
-void free_tokens(char **tokens, size_t qtd);
+void str_free_tokens(char **tokens, size_t qtd);
 
 #endif

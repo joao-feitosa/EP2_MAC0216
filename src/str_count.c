@@ -45,3 +45,30 @@ size_t str_linecount(const char *str) {
 
     return count;
 }
+
+size_t str_count(const char *str, const char *wrd) {
+    if (str == NULL || wrd == NULL)
+        return 0;
+    
+    size_t size = strlen(wrd);
+
+    if (size == 0) {
+        return 0;
+    }
+
+    size_t count = 0;
+    const char *pos = str;
+
+    while (1) {
+
+        pos = strstr(pos, wrd);
+        if(pos == NULL)
+            break;
+        
+        pos += size;
+        count++;
+
+    }
+    
+    return count;
+}
