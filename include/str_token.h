@@ -11,7 +11,7 @@ char **str_splitlines(const char *str);
 
 /*Libera um vetor de tokens
   Precisa receber o tamanho da lista de tokens, 
-  gerenciar o tamanho fica a cargo do usuário
+  Gerenciar o tamanho fica a cargo do usuário
 */
 void str_free_tokens(char **tokens, size_t qtd);
 

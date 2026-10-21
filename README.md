@@ -18,7 +18,7 @@ Biblioteca em C para manipulação, quantificação e tokenização de strings
 - `include/`: Arquivos de cabeçalho (`.h`) contendo a API pública da biblioteca.
 - `src/`: Arquivos de implementação (`.c`) dos módulos.
 - `app/`: Aplicação cliente (`main.c`) que consome a biblioteca.
-- `tests/`: Suíte de testes automatizados para todas as funções públicas.
+- `tests/`: Coleção de testes automatizados para todas as funções públicas.
 
 ## Módulos e Funções
 
