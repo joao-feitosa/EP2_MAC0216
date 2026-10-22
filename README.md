@@ -56,13 +56,14 @@ O projeto utiliza um Makefile para automação. Os seguintes alvos estão dispon
 - `make all`: (ou apenas `make`) Compila a biblioteca estática, a dinâmica e a aplicação cliente.
 - `make clean`: Remove todos os artefatos de compilação gerados (arquivos `.o`, `.a`, `.so` e binários).
 - `make run`: Compila (se necessário) e executa a aplicação cliente.
+- `make run_estatico`: Execução com biblioteca estatica
+- `make run_dinamico`: Execução com biblioteca dinamica
 - `make test`: Compila e executa os testes automatizados da biblioteca.
 - `make install`: Instala a biblioteca e os cabeçalhos no sistema.
 
 ## Execução
 Para executar a aplicação cliente padrão após a compilação, utilize:
 `make run`
-
 
 ## Testes
 Para rodar os testes automáticos das funções:
